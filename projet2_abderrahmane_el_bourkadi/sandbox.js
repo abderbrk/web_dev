@@ -12,9 +12,9 @@ function add_task(){
                            <span>${todo}</span>
                            <i  class="far fa-trash-alt delete"></i>
                             </li>`;
-                   
+                  new_task.value = ""; 
              }
-        
+             
 
 
 }
@@ -40,6 +40,14 @@ document.getElementById("search").addEventListener("input",function(){
             item.style.display = "flex";
         }
     })
+});
+
+document.forms[1].addEventListener("submit",(e)=>{
+    e.preventDefault();
+});
+
+document.forms[0].addEventListener("submit",(e)=>{
+    e.preventDefault();
 });
 
 
