@@ -1,0 +1,70 @@
+
+.form_container{
+    margin-left: 25%;
+    width: 700px;
+    margin-top: 100px;
+    padding: 10px;
+    background-color: rgb(69, 78, 75);
+    color:white;
+    justify-items: center;
+    
+}
+
+label{
+    width:500px;
+    margin-bottom:10px;
+}
+
+input{
+    width:500px;
+    height: 20px;
+}
+
+select{
+    width: 500px;
+    height: 20px;}
+
+button{
+    margin-left:170px ;
+    margin-top: 15px;
+    height: 30px;
+    box-shadow: 2px 2px;
+    
+}
+
+.container{
+    background-color: rgb(195, 229, 229);
+    width: 700px;
+    margin-left: 300px;
+    padding: 20px;
+    
+
+}
+
+#result{
+    position:fixed;
+    top:50px;
+    right: 100px;
+    color:rgb(52, 76, 196);
+    font-size: 30px;
+    
+}
+body{
+    background-color: rgb(106, 122, 141);
+}
+
+
+#timer{
+    position: fixed;
+    top: 80px;
+    right: 300px;
+    color: rgb(24, 13, 228);
+    font-size: 60px;
+}
+
+.mess{
+    color: rgb(252, 0, 0);
+    font-size: 90px;
+    margin: 200px;
+    margin-bottom: 40px;
+}
