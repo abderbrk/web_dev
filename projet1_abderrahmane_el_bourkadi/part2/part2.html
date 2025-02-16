@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Projet1/part2</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="part2.css">
+    </head>
+    <body>
+        <div class="form_container">
+            <form id="formulaire">
+               <label>Choose a number of questions:</label><br>
+               <input type="number" id="num_qst" min="1" max="10" value="5"><br><br>
+               <label>Select category:</label><br>
+               <select id="category">
+                    <option value="">Any Category</option>
+                    <option value="21">Sports</option>
+                    <option value="9">General Knowledge</option>
+                    <option value="23">History</option>
+               </select><br><br>
+               <label>Select Difficulty:</label><br>
+               <select id="Difficulty">
+                    <option value="">Any Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select><br><br>
+                <label>Select Type:</label><br>
+                <select id="Type">
+                    <option value="">Any Type</option>
+                    <option value="multiple">Multiple Choice</option>
+                    <option value="boolean">True / False</option>
+                </select><br><br>
+                <label>Select Encoding:</label><br>
+                <select id="encoding">
+                    <option value="">Default Encoding</option>
+                    <option value="url3986">Legacy URL Encoding</option>
+                    <option value="base64">Base64 Encoding</option>
+                </select><br><br>
+                <button type="button" onclick="generer_quiz()">Generer le quiz</button>
+            </form>
+            
+
+        </div>
+        <div class="container" style="display: none;"></div>
+        <div id="result"></div>
+        <script src="script.js"></script>
+    </body>
+</html>
