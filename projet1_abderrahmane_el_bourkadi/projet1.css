@@ -1,1 +1,56 @@
 
+h1{
+    color: blue;
+    text-align:center;
+    margin-bottom: 50px;
+}
+
+.div_form{
+    background-color: rgb(195, 229, 229);
+    width: 700px;
+    margin-left: 300px;
+    padding: 20px;
+    
+
+}
+
+form{
+    margin-left: 150px;
+}
+
+
+
+input[type="submit"]{
+
+    background-color: rgb(47, 47, 239);
+    color: white;
+    margin-left: 47%;
+    padding: 3px;
+}
+
+#timer{
+    position: fixed;
+    top: 80px;
+    right: 550px;
+    color: rgb(255, 47, 47);
+    font-size: 60px;
+}
+
+.mess{
+    color: rgb(252, 0, 0);
+    font-size: 90px;
+    margin: 200px;
+    margin-bottom: 40px;
+}
+
+body{
+    background-color: rgb(102, 102, 226);
+}
+
+.score_mess{
+    color: white;
+    font-size: 90px;
+    margin: 200px;
+    margin-bottom: 40px;
+
+}
