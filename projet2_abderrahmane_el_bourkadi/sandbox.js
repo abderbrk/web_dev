@@ -10,7 +10,7 @@ function add_task(){
     
        task_list.innerHTML+=`<li class="list-group-item">
                            <span>${todo}</span>
-                           <i onclick= class="far fa-trash-alt delete"></i>
+                           <i  class="far fa-trash-alt delete"></i>
                             </li>`;
              }
         
