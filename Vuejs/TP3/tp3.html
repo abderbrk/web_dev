@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List - Vue.js</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            
+            margin: 20px;
+        }
+        .task {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .task.completed {
+            background-color: #d4f4d4;
+        }
+        .task.pending {
+            background-color: #f4cccc;
+        }
+        .filter-buttons {
+            margin-bottom: 30px;
+        }
+        .filter-buttons button {
+            margin-right: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .filter-buttons button.active {
+            background-color: #28bc0e;
+            color: white;
+            border: none;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Gestion des Tâches</h1>
+
+        <!-- Filtres -->
+        <div class="filter-buttons">
+            <button 
+                @click="filter = 'all'" 
+                :class="{ active: filter === 'all' }"
+            >
+                Toutes les tâches
+            </button>
+            <button 
+                @click="filter = 'pending'" 
+                :class="{ active: filter === 'pending' }"
+            >
+                Tâches à faire
+            </button>
+            <button 
+                @click="filter = 'completed'" 
+                :class="{ active: filter === 'completed' }"
+            >
+                Tâches terminées
+            </button>
+        </div>
+
+        <!-- Affichage des tâches -->
+        <div v-for="task in filteredTasks" :key="task.id" class="task" :class="{ completed: task.completed, pending: !task.completed }">
+            <h3>{{ task.title }}</h3>
+            <p>{{ task.description }}</p>
+            <button 
+                v-show="!task.completed" 
+                @click="markAsCompleted(task.id)"
+            >
+                Marquer comme terminée
+            </button>
+            <span v-if="task.completed" style="color: green;">✓ Terminée</span>
+        </div>
+
+        <!-- Nombre total de tâches -->
+        <div>
+            <strong>Nombre total de tâches : {{ totalTasks }}</strong>
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    // Donnes JSON definies directement dans le fichier HTML
+                    tasks: [
+                        {
+                            id: 1,
+                            title: "Faire les courses",
+                            description: "Acheter des légumes et du lait.",
+                            completed: false
+                        },
+                        {
+                            id: 2,
+                            title: "Faire du sport",
+                            description: "Courir pendant 30 minutes.",
+                            completed: true
+                        },
+                        {
+                            id: 3,
+                            title: "Réviser pour l'examen",
+                            description: "Relire le chapitre 5 du manuel.",
+                            completed: false
+                        }
+                    ],
+                    filter: 'all' // Filtre par défaut
+                };
+            },
+            computed: {
+                // Filtre les tâches en fonction de l'état sélectionné
+                filteredTasks() {
+                    if (this.filter === 'pending') {
+                        return this.tasks.filter(task => !task.completed);
+                    } else if (this.filter === 'completed') {
+                        return this.tasks.filter(task => task.completed);
+                    } else {
+                        return this.tasks; // Affiche toutes les tâches
+                    }
+                },
+                // Calcule le nombre total de tâches
+                totalTasks() {
+                    return this.tasks.length;
+                }
+            },
+            methods: {
+                // Marque une tâche comme terminée
+                markAsCompleted(taskId) {
+                    const task = this.tasks.find(task => task.id === taskId);
+                    if (task) {
+                        task.completed = true;
+                    }
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
