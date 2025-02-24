@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Manipulation de vue</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<style>
+	#monapp{
+		margin:50px;
+	}
+	p{
+		color: red;
+	}
+</style>
+</head>
+<body>
 
+<div id="monapp">
+	<p v-show="show()">Rappel: Vous avez saisi un espace!</p>
+	<input type="text" v-model="message" placeholder="entrez du text">
+</div>
+
+
+<script>
+	const appli = {
+		data () {
+				return {
+					message:''
+				}
+			},
+			methods:{
+				show(){
+					return this.message[this.message.length-1]==' '; // egale true une fois l utilisateur tape un space
+				}
+			}
+	};
+	
+Vue.createApp(appli).mount("#monapp");
+</script>
+
+</body>
+</html>
