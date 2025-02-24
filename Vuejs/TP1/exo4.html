@@ -1,1 +1,46 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exo 4</title>
+        <meta charset="utf-8">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <style>
+            .rouge{
+                color: red;
+            }
+            .bleu{
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li>Couleur de la police</li>
+                <input type="radio" id="rouge" name="color" v-model="color" value="rouge">
+                <label for="rouge">Rouge</label> <br>
+                <input type="radio" id="bleu" name="color" v-model="color" value="bleu">
+                <label for="bleu">Bleu</label>
+                <li>Afficher/cacher le paragraphe?</li>
+                <input type="checkbox" v-model="shown">
+            </ul>
+           <p :class="color" v-if="shown">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Ullam pariatur  mollitia et, inventore delectus. 
+            Doloribus laudantium maiores at necessiti ipsum distinctio?
+           </p>
+           
+        </div>
+        <script>
+            const app=Vue.createApp({
+                  data(){
+                    return {
+                        color:'',
+                        shown:true
+                    }
+                  }
+            });
+            app.mount("#app");
+        </script>
+    </body>
+</html>
